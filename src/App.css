@@ -1,0 +1,38 @@
+
+.appContainer {
+  background-color: #717171;
+  min-height:100vh;
+}
+.input__custom {
+  height:50px;
+  border-radius: 40px;
+}
+.cardCustom {
+  background-color: #4C4C4B;
+  border-radius: 9px;
+  color:white;
+  font-size: 11px;
+}
+.buttonCustom {
+  background-color: #00A1FE;
+  height: 40px;
+  width: 100px;
+  border-radius: 10px;
+}
+.buttonCustom:hover {
+  background-color: #00A1FE;
+}
+.comments {
+  border-radius: 9px;
+}
+.copyText {
+  border-radius: 9px;
+  color: black;
+  font-weight: 400;
+  background-color: white;
+  font-size: 12px;
+}
+.textFooter {
+  color:#302B23;
+  font-weight: 700;
+}
