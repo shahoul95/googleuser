@@ -1,11 +1,17 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { RootState } from "../store/index";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Confirmation = () => {
     const form = useSelector(
         (state: RootState) => state.form
     );
+
+    const notify = () => toast("Text Copied!", {
+        autoClose: 1 // Fermer automatiquement après 2 secondes (2000 millisecondes)
+      });
 
     const handleCopyText = () => {
         // Select the text to be copied
@@ -21,6 +27,7 @@ const Confirmation = () => {
         window.getSelection()?.addRange(range);
         document.execCommand('copy');
         window.getSelection()?.removeAllRanges();
+        notify();
     };
 
 
@@ -33,8 +40,9 @@ const Confirmation = () => {
                             <div className='copyText mt-3 p-3'>
                                 {form.reference}
                             </div>
-                            <div className='copyCustom' onClick={handleCopyText}>
+                            <div className='copyCustom cursor-pointer' onClick={handleCopyText}>
                                 Copier
+                                <ToastContainer autoClose={false}   />
                             </div>
                         </div>
                     </Col>
