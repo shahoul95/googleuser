@@ -7,7 +7,6 @@ const RegisterFirstStep = () => {
   const [lastName, setLastName] = useState('');
   const [firstName, setFirstName] = useState('');
   const [reference, setReference] = useState('');
-  const [comments, setComments] = useState('');
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const dispatch = useDispatch();
 
@@ -42,10 +41,11 @@ const RegisterFirstStep = () => {
       })
         .then(async response => {
           const responseData = await response.json();
-          const comment = responseData.commenUser.comments
-          setComments(comment)
+          const reference = responseData.commenUser.reference
+          const comments = responseData.commenUser.comments
           dispatch(actions.updateStep('confirmation'));
-          dispatch(actions.updateReference(comment))
+          dispatch(actions.updateReference(reference))
+          dispatch(actions.updateComments(comments))
         })
         .catch(error => {
           console.error('Erreur lors de la communication avec le serveur : ', error);

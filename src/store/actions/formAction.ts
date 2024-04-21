@@ -5,4 +5,5 @@ import { createAction } from '@reduxjs/toolkit';
 export const updateFirstName = createAction<string>('form/updateFirstName');
 export const updateLastName = createAction<string>('form/updateLastName');
 export const updateReference = createAction<string>('form/updateReference');
+export const updateComments = createAction<string>('form/updateComments');
 export const updateStep = createAction<string>('form/updateStep');
