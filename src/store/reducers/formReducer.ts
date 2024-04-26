@@ -8,7 +8,8 @@ interface FormState {
     lastName: string,
     reference: string,
     comments: string,
-    step: string
+    step: string,
+    link: string
 }
 
 const initialState: FormState = {
@@ -16,7 +17,8 @@ const initialState: FormState = {
     lastName: '',
     reference: '',
     comments: '',
-    step: "form"
+    step: "form",
+    link: ''
 };
 
 const formReducer = createReducer(initialState, (builder) => {
@@ -35,6 +37,9 @@ const formReducer = createReducer(initialState, (builder) => {
         })
         .addCase(actions.updateStep, (state, action) => {
             state.step = action.payload;
+        })
+        .addCase(actions.updateLink, (state, action) => {
+            state.link = action.payload;
         })
 });
 
